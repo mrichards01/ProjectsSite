@@ -29,7 +29,7 @@ Java uses a combination of these GC methods but the concept of splitting memory 
 
 As seen below the JVM memory heap is split into different sections to serve different purposes. This does not represent the real ratio between the different generations and actually the size of both the young and old generation partitions seen can be configured in your JVM arguments. 
 
-![placeholder]({{baseurl}}images/java_memory_model/java_memory_model.png "JVM Memory Model")
+![placeholder]({{site.baseurl}}/images/java_memory_model/java_memory_model.png "JVM Memory Model")
 
 ## The Young Generation
 
