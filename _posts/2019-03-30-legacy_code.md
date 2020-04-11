@@ -14,7 +14,7 @@ When we talk about legacy code the largest burden by far and large is making new
 <li><b>Interfaces and Abstractions</b> - Depending on abstractions over implementations is a key OOP concept, if a class under inspection refers to concrete classes in the constructor's signature then this could be the first place to turn to. Sure you can test with some dummy object values but at some point you are going to need to need to mock out this behaviour fully or swap in some new classes perhaps. If a particular dependency is causing you trouble, the dependency is used in more than one place and you haven't written an interface or abstract class for it already, then do this first.
 </li>
 
-<li><b>Stub new methods</b> - A technique many of us use subconsciously when writing tests. You add some new functionality to a method, the method becomes larger and you need a quick way to test the old method without what you added getting in the way. Perhaps you have now have a file that you now need to read, a call for a web request or a long running task you need to dispatch. Instead of writing the change inline inside the function it would seem natural to at least create a new method to separate the new functionality, thus enabling you to mock the new method and test the old functionality. The downside being that your new function instantly becomes public to be able to mock the function, although this isn't a huge problem if the function is consistent with our external view of this class's responsibilities (if it isn't we should probably break out a new class anyway). While this is a technique you are probably familiar with, it is important to remember this is always a choice you can make over writing more mocking code. Some engineers can jump the gun and start to mock out libraries or dependencies rather than stubbing out new abstractions or functions.
+<li><b>Stub new methods</b> - A technique many of us use subconsciously when writing tests. You add some new functionality to a method, the method becomes larger and you need a quick way to test the old method without what you added getting in the way. Perhaps you have now have a file that you now need to read, a call for a web request or a long running task you need to dispatch. Instead of writing the change inline inside of an existing function it would seem natural to at least create a new method to separate the new functionality, thus enabling you to mock the new method and test the old functionality. The downside being that in order to mock the function it instantly becomes public. This isn't a huge problem in my view if the function is consistent with our external view of this class's responsibilities (if it isn't we should probably break out a new class anyway and use DI). While this is very familiar technique to many, it is important to remember this is always a choice you can make over writing more mocking code. Some engineers can jump the gun and start to mock out libraries or dependencies rather than stubbing functions.
 </li>
 
 <li>
@@ -138,7 +138,7 @@ public String getCustomerName(int id) {
     }
     catch (NullPointerException e1) {
         logError(e1);
-        // if we really need re-throw an exception then 
+        // if we really need to re-throw an exception then
         // we wrap it in a new exception to be handled 
         // by the caller
         throw new CustomerNotFoundException("Customer not found.", e1);
@@ -150,4 +150,4 @@ public String getCustomerName(int id) {
 }
 
 {% endhighlight %}
-These are just a few points I would consider important to moving legacy code forward with a particular emphasis on tests and breaking dependencies to facilitate changes and refactoring without breaking functionality. Hopefully some of the techniques here reinforce what you may already know and help bring your code to a cleaner state.
+These are just a few points I would consider important to moving legacy code forward with a particular emphasis on tests and breaking dependencies to facilitate change and refactoring without breaking functionality. Hopefully some of the techniques here reinforce what you may already know and help bring your code to a cleaner state.

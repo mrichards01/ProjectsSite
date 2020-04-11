@@ -16,7 +16,7 @@ We are often concerned with the JVM's Heap memory as running the garbage collect
 
 ## Garbage Collection Strategies
 
-Each GC strategy at the JVM 's disposal have their own advantages/disadvantages. A classic but fundamental strategy that you should know of is the Mark and Sweep method. This particular algorithm or strategy will keep track of all of the running GC roots in the program. When the Garbage collector runs it will traverse these roots and 'mark' any objects that are still in use. The 'sweeping' part of the algorithm then takes place and objects not marked are left to be re-allocated for future use. After this there is a final step to compact the memory to ensure memory remains de-fragmented and for contiguous blocks to be re-used. Some other GC strategies include the following:
+Each GC strategy at the JVM's disposal have their own advantages/disadvantages. A classic but fundamental strategy that you should know of is the Mark and Sweep method. This particular algorithm or strategy will keep track of all of the running GC roots in the program. When the Garbage collector runs it will traverse these roots and 'mark' any objects that are still in use. The 'sweeping' part of the algorithm then takes place and objects not marked are left to be re-allocated for future use. After this there is a final step to compact the memory to ensure memory remains de-fragmented and for contiguous blocks to be re-used. Some other GC strategies include the following:
 <ul>
 <li><b>Reference Counting</b> - Store a count of the number of references to each object, when the count is zero then free the object from memory. This can be difficult to determine for circular dependencies. </li>
 <li><b>Copying</b> - Similar to the Mark and Sweep method but the sweep stage will move across objects in use to a different partition and then compact memory. </li>
@@ -41,7 +41,7 @@ At first all objects are created in the young generation in the Eden space withi
 
 ## JVM Garbage Collector Settings
 
-As mentioned, the JVM has a number of different collectors which a developer is free to choose depending on the best fit the purposes of their application. Before choosing any of these, you should thoroughly research your choice and any alternatives. If in doubt, always use the default:
+As mentioned, the JVM has a number of different collectors which a developer is free to choose from depending on which best fits the purposes of their application. Before choosing any of these, you should thoroughly research your choice and any alternatives. If in doubt, always use the default:
 
 <ul>
 <li>
@@ -52,7 +52,7 @@ As mentioned, the JVM has a number of different collectors which a developer is 
 </li>
 <li><b>CMS Collector (Concurrent Mark and Sweep)</b>: Like the Parallel Collector this uses multiple threads. This collector tries to limit the amount of time spent on stop the world operations but will run slower on average. Usually this collector requires both more cpu and heap memory in order to run steadily. This could be suitable for an always on server side environment where having no pauses are important to perceived performance.
 </li>
-<li><b>The G1 Collector (Garbage First)</b>: A more recent collector as of JDK 7 update 4, designed to replace the CMS collector and for machines with higher memory specifications. This collector will partition the heap into contiguous blocks in virtual memory. First a concurrent marking phase will take place, after which the collector will know which regions are mostly empty. These regions are collected first as they provide the best results to relinquishing memory and to fulfilling target pause times. As an intended improvement of the CMS Collector the use-case of this collector is similar.
+<li><b>The G1 Collector (Garbage First)</b>: A more recent collector as of JDK 7 update 4, designed to replace the CMS collector and for machines with higher memory specifications and thus this is the preferred collector going forward for server side environments. This collector comes with a high probability of meeting expected pause times at the expense of some throughput that a parallel GC may provide. Unlike CMS, this collector will partition the heap into contiguous, equally sized blocks in virtual memory each assigned to either Eden, Survivor or Old Generation duties. The main difference is that the heap is made up of many smaller blocks rather than large regions, providing more flexibility to allocate and remove objects. First a concurrent marking phase will take place, after which the collector will know which regions are mostly empty. These regions are collected first as they provide the best results to relinquishing memory and to fulfilling target pause times. This is different from other collectors where garbage is collected on a generational basis. As an intended improvement of the CMS Collector the use-case of this collector is similar.
 </li>
 </ul>
 
