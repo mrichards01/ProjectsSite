@@ -154,7 +154,7 @@ public String getCustomerDetails(String name) {
     Optional<Customer> customerDetails = Optional.ofNullable(fetchData(name));
 
      return customerDetails
-        .flatMap(Customer::getID)
+        .flat(Customer::getID)
         .filter(customerName -> this.hasCustomerPrefix(customerName))
         .orElseGet(this::handleNullCustomer);
 }
