@@ -2,6 +2,9 @@
 layout: post
 title: Java 8
 categories: Java
+banner: /images/java_features_8/header.png
+banner_alt: Java 8
+banner_author: <a href="https://pixabay.com/users/ponce_photography-2473530/">Ponce Photography</a>
 ---
 
 At the time of writing, version 13 of the Java JDK is currently available and at the current rate, 14 won't be too far away. If like me you spend time between multiple languages it can be hard to keep track of the useful (and not so useful) features of a language. Java 8 was perhaps the most profound update amongst all of these, offering many feature rich enhancements that Java programmers now take for granted.

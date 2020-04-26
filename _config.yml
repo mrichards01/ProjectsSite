@@ -16,10 +16,10 @@
 title: CS Projects Hub
 email: mrichards39@hotmail.co.uk
 description: >- # this means to ignore newlines until "baseurl:"
-  A few tech projects and write-ups about programming, algorithms 
-  and problems
+  A few tech projects and write-ups about programming, 
+  design, clean-code and various technologies
 baseurl: ""
-url: "https://mrichards.dev" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://mrichards.dev" 
 
 # Build settings
 markdown:         kramdown

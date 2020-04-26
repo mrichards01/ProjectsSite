@@ -2,6 +2,9 @@
 layout: post
 title: The Java Memory Model
 categories: Java
+banner: /images/java_memory_model/header.png
+banner_alt: Java Memory Model
+banner_author: <a href="https://pixabay.com/users/alexas_fotos-686414/">Alexas_Fotos</a>
 ---
 
 Often times, the Java Memory Model is a talking point in technical interviews. Knowing how Garbage Collection works within Java is important to understanding the impact of your code, improving the efficiency of your applications with scale and choosing the right garbage collector for the job. Here are some key points and considerations related to the JVM and Garbage Collection.

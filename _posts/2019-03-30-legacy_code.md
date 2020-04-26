@@ -2,6 +2,9 @@
 layout: post
 title: Legacy Code
 categories: Best Practices
+banner: /images/legacy_code/header.png
+banner_alt: Legacy Code
+banner_author: <a href="https://pixabay.com/users/4064462-4064462/">Pixabay Contributor</a>
 ---
 
 As developers, we know all too well that code has a lifespan. Knowing how to avoid code re-writes, how to improve software longevity, readability, maintainability and reduce the risk of bugs are all ongoing challenges. It's clear that a good team will need to set some best practices and standards either directly through documentation or indirectly through consistency in the code. Some recent reading around the topic of legacy code (Working Effectively with Legacy Code by Michael Feathers) and technical debt inspired me to write this post to re-collect what I've learned. There are actually some very simple tweaks that everyone can do to make technical debt easier to deal with. When done right and often, small changes can hang together as part of a much bigger picture or help the next guy pull out some code, uplift a module or re-write some functionality from scratch. Sure enough ensuring your code reads well and that it is free from bugs will mean a focus on writing tests. Although I find that the cost of writing tests is not actually as time consuming as people think, instead it tends to be more about letting go of some utopian best practices and being willing to make some short term compromises. Here are my tips and thoughts on improving legacy code.
